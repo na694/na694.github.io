@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Na-Yeon Portfolio</title>
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: "Jua", "Segoe UI", system-ui, -apple-system, "Noto Sans KR", sans-serif;
+      background: linear-gradient(180deg, var(--pink-1), var(--pink-2));
+      color: #333;
+      -webkit-font-smoothing: antialiased;
+    }
+
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 28px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid rgba(255, 190, 220, 0.7);
+    }
+
+    .logo {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: 0.06em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .nav-btn {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px dashed rgba(255, 120, 160, 0.45);
+      color: #b04a75;
+      background: rgba(255, 255, 255, 0.85);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+
+    .nav-btn.active {
+      color: var(--accent);
+      border-color: rgba(255, 80, 140, 0.7);
+    }
+
+    
+    .about-container {
+      max-width: 1300px;
+      margin: 100px auto 160px auto;
+      padding: 0 24px;
+    }
+
+    /* 3단 레이아웃 */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 330px 1fr 260px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* profile */
+    .id-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 18px;
+      border: 2px dashed rgba(255, 150, 180, 0.45);
+      box-shadow: 0 8px 25px rgba(255, 120, 160, 0.07);
+    }
+
+    .photo-box {
+      width: 100%;
+      height: 360px;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .id-info p {
+      margin: 4px 0;
+      padding: 8px;
+      font-size: 1rem;
+      color: #444;
+      font-weight: 600;
+    }
+
+    .id-info a {
+      color: #ff4f8b;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    /* about */
+    .center-col {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .name-box {
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px;
+      min-height: 200px;
+      border: 2px dashed rgba(255, 180, 200, 0.45);
+      box-shadow: 0 8px 25px rgba(255, 120, 160, 0.06);
+    }
+
+    .name-box-title {
+      font-size: 26px;
+      color: #ff4f8b;
+      font-weight: 800;
+    }
+
+    .bio-box {
+      background: #fff;
+      border-radius: 14px;
+      padding: 22px;
+      min-height: 440px;
+      border: 2px dashed rgba(255, 180, 200, 0.45);
+      box-shadow: 0 8px 25px rgba(255, 120, 160, 0.06);
+    }
+
+    .bio-box h2 {
+      color: #ff4f8b;
+      font-size: 22px;
+      margin: 0 0 10px 0;
+    }
+
+    .bio-box p {
+      color: #444;
+      line-height: 1.7;
+      margin: 6px 0;
+      font-size: 1rem;
+    }
+
+    /* calendar */
+    .right-col {
+      display: flex;
+      justify-content: center;
+    }
+
+    .calendar-box {
+      width: 100%;
+      height: 660px;
+      background: #fff;
+      border-radius: 14px;
+      border: 2px dashed rgba(255, 180, 200, 0.45);
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 25px rgba(255, 120, 160, 0.06);
+    }
+
+    .calendar-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* footer */
+    .site-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      color: rgba(255, 80, 130, 0.8);
+      padding: 10px 0 20px;
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      border-top: 1px solid rgba(255, 190, 220, 0.7);
+    }
+
+    .bottom-text {
+      color: #ff4f8b;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1100px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- header -->
+  <header class="site-header">
+    <div class="logo">Na-Yeon Portfolio</div>
+    <nav class="nav">
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="about.html" class="nav-btn active">About</a>
+      <a href="experience.html" class="nav-btn">Experience</a>
+      <a href="project.html" class="nav-btn">Project</a>
+      <a href="study.html" class="nav-btn">Study</a>
+      <a href="contact.html" class="nav-btn">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main class="about-container">
+    <div class="about-grid">
+
+      <!-- Profile -->
+      <aside class="id-card">
+        <div class="photo-box">
+          <img src="profile.jpg" alt="프로필">
+        </div>
+
+        <div class="id-info">
+          <p>이름: 이나연 (Na-Yeon)</p>
+          <p>학교: 군산대학교</p>
+          <p>전공: 컴퓨터정보공학과</p>
+          <p>학번: 2500123</p>
+          <p>이메일: <a href="mailto:leenayeon6207@naver.com">leenayeon6207@naver.com</a></p>
+          <p>GitHub: <a href="https://github.com/na694" target="_blank">github.com/na694</a></p>
+        </div>
+      </aside>
+
+      <!-- about -->
+      <section class="center-col">
+        <div class="name-box">
+          <div class="name-box-title">Nayeon · Lee</div>
+        </div>
+
+        <div class="bio-box">
+          <h2>Biography</h2>
+          <p>
+
+          </p>
+          <p>
+
+          </p>
+        </div>
+      </section>
+
+      <!-- calender -->
+      <div class="calendar-box">
+  <iframe 
+    src="https://calendar.google.com/calendar/embed?src=lee2110253%40gmail.com&ctz=Asia%2FSeoul"
+    style="border:0; width:100%; height:100%;"
+    frameborder="0"
+    scrolling="no">
+  </iframe>
+</div>
+
+    </div>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="bottom-inner">
+      <div class="bottom-box">
+        <span class="bottom-text">© Na-Yeon Portfolio</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
